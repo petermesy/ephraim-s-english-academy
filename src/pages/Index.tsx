@@ -1,13 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import Qualifications from "@/components/Qualifications";
+import Services from "@/components/Services";
+import Availability from "@/components/Availability";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>Ephraim Messay | Professional English Tutor</title>
+        <meta 
+          name="description" 
+          content="Professional English tutoring for children and students. Build speaking confidence, writing skills, and reading comprehension with Ephraim Messay at British International School." 
+        />
+        <meta name="keywords" content="English tutor, English tutoring, language learning, speaking confidence, writing skills, grammar, vocabulary, academic support" />
+      </Helmet>
+      
+      <div className="min-h-screen">
+        <Navigation />
+        <Hero />
+        <Qualifications />
+        <Services />
+        <Availability />
+        <Contact />
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
