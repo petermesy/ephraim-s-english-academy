@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showEmailOptions, setShowEmailOptions] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const emailRef = useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,6 +24,19 @@ const Contact = () => {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  // close email options when clicking outside
+  useEffect(() => {
+    function onDocClick(e: MouseEvent) {
+      if (!emailRef.current) return;
+      if (!emailRef.current.contains(e.target as Node)) {
+        setShowEmailOptions(false);
+      }
+    }
+
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
   }, []);
 
   return (
@@ -50,29 +65,74 @@ const Contact = () => {
               <div className="text-left">
                 <p className="text-primary-foreground/60 text-xs md:text-sm mb-0.5 md:mb-1">Call or Text</p>
                 <p className="font-display text-base md:text-lg font-semibold text-primary-foreground">
-                  [Phone Number]
+                  +251968464361
                 </p>
               </div>
             </a>
             
-            <a 
-              href="mailto:contact@example.com" 
-              className="group flex items-center gap-3 md:gap-4 bg-primary-foreground/10 hover:bg-primary-foreground/15 rounded-xl p-4 md:p-6 transition-smooth"
-            >
+            <div className="relative">
+              <a
+                href="#"
+                ref={emailRef}
+                onClick={(e) => { e.preventDefault(); setShowEmailOptions(s => !s); }}
+                className="group flex items-center gap-3 md:gap-4 bg-primary-foreground/10 hover:bg-primary-foreground/15 rounded-xl p-4 md:p-6 transition-smooth"
+              >
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-smooth flex-shrink-0">
                 <Mail className="w-5 h-5 md:w-6 md:h-6 text-accent" />
               </div>
               <div className="text-left">
                 <p className="text-primary-foreground/60 text-xs md:text-sm mb-0.5 md:mb-1">Email</p>
                 <p className="font-display text-base md:text-lg font-semibold text-primary-foreground">
-                  [Email Address]
+                  eph7messi@gmail.com
                 </p>
               </div>
-            </a>
+              </a>
+
+              {showEmailOptions && (
+                <div className="absolute left-0 mt-2 w-56 bg-background rounded-lg shadow-lg p-2 z-20">
+                  <a
+                    className="block px-3 py-2 rounded hover:bg-muted"
+                    href={encodeURI(
+                      `https://mail.google.com/mail/?view=cm&fs=1&to=eph7messi@gmail.com&su=${encodeURIComponent('Inquiry from website')}&body=${encodeURIComponent('Hello,')}`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowEmailOptions(false)}
+                  >
+                    Open in Gmail
+                  </a>
+
+                  <a
+                    className="block px-3 py-2 rounded hover:bg-muted"
+                    href={encodeURI(
+                      `https://outlook.live.com/owa/?path=/mail/action/compose&to=eph7messi@gmail.com&subject=${encodeURIComponent('Inquiry from website')}&body=${encodeURIComponent('Hello,')}`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowEmailOptions(false)}
+                  >
+                    Open in Outlook
+                  </a>
+
+                  <a
+                    className="block px-3 py-2 rounded hover:bg-muted"
+                    href={`mailto:eph7messi@gmail.com?subject=${encodeURIComponent('Inquiry from website')}`}
+                    onClick={() => setShowEmailOptions(false)}
+                  >
+                    Open mail client
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
           
           <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
-            <Button variant="hero" size="lg" className="gap-3 w-full sm:w-auto">
+            <Button
+              variant="hero"
+              size="lg"
+              className="gap-3 w-full sm:w-auto"
+              onClick={() => window.open('https://t.me/RaahGen', '_blank')}
+            >
               <Send className="w-5 h-5" />
               Send a Message
             </Button>

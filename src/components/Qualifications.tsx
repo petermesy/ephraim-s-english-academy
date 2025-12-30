@@ -1,19 +1,21 @@
-import { GraduationCap, Award, BookOpen } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import hsluLogo from "../assets/hslu-bayern-innovativ.png";
+import catholicLogo from "../assets/catholic.png";
+import profileImg from "../assets/AMU.jfif";
 
 const qualifications = [
   {
-    icon: GraduationCap,
+    image: profileImg,
     title: "BSc in Electrical & Computer Engineering",
     institution: "",
   },
   {
-    icon: Award,
+    image: hsluLogo,
     title: "Diploma",
     institution: "Lucerne University of Applied Sciences & Arts",
   },
   {
-    icon: BookOpen,
+    image: catholicLogo,
     title: "MBA (In Progress)",
     institution: "The Catholic University of America",
   },
@@ -65,7 +67,13 @@ const Qualifications = () => {
               
               <div className="flex flex-col items-center text-center">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary flex items-center justify-center mb-4 md:mb-6 group-hover:bg-accent/10 transition-smooth">
-                  <qual.icon className="w-7 h-7 md:w-8 md:h-8 text-primary group-hover:text-accent transition-smooth" />
+                  {qual.image ? (
+                    <img
+                      src={qual.image}
+                      alt={qual.title}
+                      className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                    />
+                  ) : null}
                 </div>
                 
                 <h3 className="font-display text-base md:text-lg font-semibold text-foreground mb-2">
