@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import profileImage from "@/assets/ephraim-profile.png";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -22,41 +23,56 @@ const Hero = () => {
       {/* Gold accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-accent" />
       
-      <div className="container relative z-10 px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Icon */}
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/20 mb-8 animate-scale-in">
-            <GraduationCap className="w-10 h-10 text-accent" />
-          </div>
-          
-          {/* Name */}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 opacity-0 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            Ephraim Messay
-          </h1>
-          
-          {/* Title */}
-          <p className="font-display text-xl md:text-2xl text-accent font-semibold mb-8 opacity-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Professional English Tutor
-          </p>
-          
-          {/* Mission statement */}
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-12 leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            Helping students speak, write, and understand English fluently and confidently.
-          </p>
-          
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <Button variant="hero" size="xl" onClick={scrollToContact}>
-              Book a Consultation
-            </Button>
-            <Button variant="heroOutline" size="xl" onClick={scrollToServices}>
-              View Services
-            </Button>
+      <div className="container relative z-10 px-4 py-16 md:py-20">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            {/* Profile Image */}
+            <div className="flex-shrink-0 opacity-0 animate-scale-in">
+              <div className="relative">
+                <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-accent shadow-elevated">
+                  <img 
+                    src={profileImage} 
+                    alt="Ephraim Messay - Professional English Tutor"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                {/* Decorative ring */}
+                <div className="absolute inset-0 rounded-full border-2 border-accent/30 scale-110" />
+              </div>
+            </div>
+            
+            {/* Content */}
+            <div className="text-center md:text-left flex-1">
+              {/* Name */}
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-3 md:mb-4 opacity-0 animate-slide-in-right" style={{ animationDelay: "0.2s" }}>
+                Ephraim Messay
+              </h1>
+              
+              {/* Title */}
+              <p className="font-display text-lg sm:text-xl md:text-2xl text-accent font-semibold mb-4 md:mb-6 opacity-0 animate-slide-in-right" style={{ animationDelay: "0.4s" }}>
+                Professional English Tutor
+              </p>
+              
+              {/* Mission statement */}
+              <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 max-w-xl mx-auto md:mx-0 mb-8 md:mb-10 leading-relaxed opacity-0 animate-slide-in-right" style={{ animationDelay: "0.6s" }}>
+                Helping students speak, write, and understand English fluently and confidently.
+              </p>
+              
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start opacity-0 animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
+                <Button variant="hero" size="lg" className="w-full sm:w-auto" onClick={scrollToContact}>
+                  Book a Consultation
+                </Button>
+                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" onClick={scrollToServices}>
+                  View Services
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "0.8s" }}>
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
           <button 
             onClick={scrollToServices}
             className="flex flex-col items-center text-primary-foreground/60 hover:text-primary-foreground transition-smooth"
