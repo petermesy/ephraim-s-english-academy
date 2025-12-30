@@ -7,7 +7,7 @@ const qualifications = [
   {
     image: profileImg,
     title: "BSc in Electrical & Computer Engineering",
-    institution: "",
+    institution: "Arba Minch University",
   },
   {
     image: hsluLogo,
