@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
-import profileImage from "@/assets/ephraim-profile.png";
+import profileImage from "@/assets/1photo_2025-09-25_19-23-44.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {

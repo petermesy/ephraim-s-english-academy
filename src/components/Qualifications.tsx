@@ -16,7 +16,7 @@ const qualifications = [
   },
   {
     image: catholicLogo,
-    title: "MBA (In Progress)",
+    title: "MBA Candidate",
     institution: "The Catholic University of America",
   },
 ];
