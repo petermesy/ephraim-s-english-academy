@@ -20,6 +20,13 @@ const Footer = () => {
           <p className="text-primary-foreground/60 text-sm max-w-md">
             Professional English Tutoring for Children & Students
           </p>
+
+          <div className="mt-4 text-primary-foreground/60 text-sm max-w-md">
+            <p className="font-semibold">Bank Accounts (Ephraim Messay CBE)</p>
+            <p>Commercial Bank of Ethiopia (CBE): 1000068560668</p>
+            <p>Abyssinia Bank: 85032879</p>
+            <p>Dashen Bank: 5068107460011</p>
+          </div>
           
           <div className="w-16 h-px bg-primary-foreground/20 my-6" />
           

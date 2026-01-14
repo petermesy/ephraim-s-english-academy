@@ -71,9 +71,9 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
-          <button 
+        {/* Scroll indicator (flowing block to avoid overlap) */}
+        <div className="flex justify-center mt-6 md:mt-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
+          <button
             onClick={scrollToServices}
             className="flex flex-col items-center text-primary-foreground/60 hover:text-primary-foreground transition-smooth"
             aria-label="Scroll to learn more"

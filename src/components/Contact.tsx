@@ -59,6 +59,8 @@ const Contact = () => {
               href="tel:+1234567890" 
               className="group flex items-center gap-3 md:gap-4 bg-primary-foreground/10 hover:bg-primary-foreground/15 rounded-xl p-4 md:p-6 transition-smooth"
             >
+          
+          
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-smooth flex-shrink-0">
                 <Phone className="w-5 h-5 md:w-6 md:h-6 text-accent" />
               </div>
@@ -124,8 +126,12 @@ const Contact = () => {
                 </div>
               )}
             </div>
+
+          
           </div>
           
+          
+
           <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
             <Button
               variant="hero"
@@ -136,6 +142,21 @@ const Contact = () => {
               <Send className="w-5 h-5" />
               Send a Message
             </Button>
+          </div>
+
+          {/* Centered bank accounts card */}
+          <div className={`mt-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.45s' }}>
+            <div className="mx-auto max-w-md bg-primary-foreground/6 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg text-center">
+              <p className="text-primary-foreground/60 text-xs md:text-sm mb-2">Bank Accounts</p>
+              <div className="text-primary-foreground font-semibold">
+                <div className="mb-2">Ephraim Messay CBE</div>
+                <ul className="mt-2 space-y-1 text-sm font-medium">
+                  <li><span className="font-semibold">Commercial Bank of Ethiopia (CBE):</span> 1000068560668</li>
+                  <li><span className="font-semibold">Abyssinia Bank:</span> 85032879</li>
+                  <li><span className="font-semibold">Dashen Bank:</span> 5068107460011</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
